@@ -1,63 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-     <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
     <TextView
-        android:id="@+id/counterTV"
+        android:id="@+id/counter"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="300dp"
-        android:layout_weight="1"
-        android:ems="10"
         android:gravity="center"
-        android:inputType="textPersonName"
-        android:text="0"
-        android:textSize="40pt" />
+        android:text="@string/counter"
+        android:textSize="@dimen/TextSize2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <Button
-        android:id="@+id/addCounterBTN"
+        android:id="@+id/button_increase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="2dp"
-        android:text="У"
-
-        android:textSize="24sp" />
+        android:text="@string/increase_button"
+        android:textSize="@dimen/TextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counter"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/addCounterBBB"
+        android:id="@+id/button_decrease"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="247dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="2dp"
-        android:text="X"
-
-        android:textSize="24sp" />
+        android:text="@string/decrease_button"
+        android:textSize="@dimen/TextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_clear"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counter"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/addCounterCCC"
+        android:id="@+id/button_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:text="@string/clear_button"
+        android:textSize="@dimen/TextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counter"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        android:text="Й"
-        android:textSize="24sp" />
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
