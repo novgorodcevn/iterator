@@ -12,10 +12,10 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var buttonIncrease: Button
-    private lateinit var textView: TextView
+    private lateinit var textField: TextView
     private lateinit var buttonClear: Button
     private lateinit var buttonDecrease: Button
-    private  var value = 0
+    private var counterValue = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,40 +23,38 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         buttonIncrease = findViewById(R.id.button_increase)
-        textView = findViewById(R.id.counter)
+        textField = findViewById(R.id.counter)
         buttonClear = findViewById(R.id.button_clear)
         buttonDecrease = findViewById(R.id.button_decrease)
 
-        buttonIncrease.setOnClickListener{
-            value++
-            if (value > 10) value = 10
-            textView.text = value.toString()
+        buttonIncrease.setOnClickListener {
+            counterValue++ ; if (counterValue > 10) counterValue = 10
+            textField.text = counterValue.toString()
         }
         buttonDecrease.setOnClickListener {
-             value--
-             if (value < 0) value = 0
-            textView.text = value.toString()
-         }
-
+            counterValue-- ; if (counterValue < 0) counterValue = 0
+            textField.text = counterValue.toString()
+        }
         buttonClear.setOnClickListener {
-            value = 0
-            textView.text = value.toString()
+            counterValue = 0
+            textField.text = counterValue.toString()
         }
     }
 
-
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt("KEY" , value)
+        val userValue = counterValue
+        outState.putInt("KEY", counterValue)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        value = savedInstanceState.getInt("KEY" , 0 )
-        textView.setText("" + value)
+        val userInt = savedInstanceState.getInt("KEY", 0)
+        counterValue = userInt
+        textField.text = counterValue.toString()
     }
 
     private companion object {
-        const val KEY = "KEY"
+        const val COUNTER_VALUE_KEY = "KEY"
     }
 }
